@@ -1,0 +1,34 @@
+{
+  "name": "moodlot",
+  "version": "1.0.0",
+  "description": "Mood Tracker",
+  "main": "main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lollothq/moodlot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lollothq/moodlot/issues"
+  },
+  "homepage": "https://github.com/lollothq/moodlot#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "electron": "^9.2.0",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "electron-is-dev": "^1.2.0",
+    "semver": "^7.3.2"
+  }
+}
