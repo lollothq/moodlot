@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      const checkOnlineStatus = () => {
+        window.ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
+      }
+
+      window.addEventListener('online', checkOnlineStatus)
+      window.addEventListener('offline', checkOnlineStatus)
+
+      checkOnlineStatus()
+    </script>
+  </body>
+</html>

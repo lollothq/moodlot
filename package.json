@@ -1,7 +1,7 @@
 {
   "name": "moodlot",
   "version": "1.0.0",
-  "description": "Mood Tracker",
+  "description": "Mood Desktop App for macOS",
   "main": "main/index.js",
   "scripts": {
     "start": "electron .",
@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lollothq/moodlot/issues"
   },
@@ -24,11 +24,56 @@
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5"
   },
   "dependencies": {
+    "app-root-path": "^3.0.0",
+    "electron-builder": "^22.8.0",
     "electron-is-dev": "^1.2.0",
+    "electron-store": "^6.0.0",
+    "electron-util": "^0.14.2",
+    "fix-path": "^3.0.0",
+    "moment": "^2.27.0",
     "semver": "^7.3.2"
+  },
+  "build": {
+    "productName": "Moodlot",
+    "buildVersion": "0",
+    "appId": "com.moodlot.desktop",
+    "afterSign": "scripts/notarize.js",
+    "artifactName": "${productName}-${version}.${ext}",
+    "mac": {
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "category": "public.app-category.productivity",
+      "icon": "main/static/icons/icon.icns",
+      "target": [
+        "zip",
+        "dmg"
+      ]
+    },
+    "dmg": {
+      "sign": false
+    },
+    "files": [
+      "**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!.gitmodules",
+      "!web/",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ]
   }
 }
